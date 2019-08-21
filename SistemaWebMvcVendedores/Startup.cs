@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SistemaWebMvcVendedores.Models;
+using SistemaWebMvcVendedores.Data;
 
 namespace SistemaWebMvcVendedores
 {
@@ -39,14 +40,17 @@ namespace SistemaWebMvcVendedores
             services.AddDbContext<SistemaWebMvcVendedoresContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("SistemaWebMvcVendedoresContext"), builder =>
                         builder.MigrationsAssembly("SistemaWebMvcVendedores")));
+
+            services.AddScoped<SeedingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seedingService.Seed();
             }
             else
             {

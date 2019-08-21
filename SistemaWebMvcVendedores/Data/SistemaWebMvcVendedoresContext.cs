@@ -16,5 +16,6 @@ namespace SistemaWebMvcVendedores.Models
         public DbSet<Department> Department { get; set; }
         public DbSet<Seller> Seller { get; set; }
         public DbSet<SallesRecord> SallesRecord { get; set; }
+        public object SalesRecord { get; internal set; }
     }
 }
