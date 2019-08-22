@@ -12,6 +12,7 @@ namespace SistemaWebMvcVendedores.Models
         public DateTime BirthDate { get; set; }
         public double Salary { get; set; }
         public Department Depertment { get; set; }
+        public int DepartmentId { get; set; }
         public ICollection<SallesRecord> Sales { get; set; } = new List<SallesRecord>();
 
         public Seller()
