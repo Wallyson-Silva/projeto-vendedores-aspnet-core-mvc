@@ -11,7 +11,7 @@ namespace SistemaWebMvcVendedores.Models
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
         public double Salary { get; set; }
-        public Department Depertment { get; set; }
+        public Department Department { get; set; }
         public int DepartmentId { get; set; }
         public ICollection<SallesRecord> Sales { get; set; } = new List<SallesRecord>();
 
@@ -26,7 +26,7 @@ namespace SistemaWebMvcVendedores.Models
             Email = email;
             BirthDate = birthDate;
             Salary = salary;
-            Depertment = depertment;
+            Department = depertment;
         }
 
         public void AddSales(SallesRecord sr)
